@@ -13,8 +13,11 @@ const App = () => {
   ];
   return (
     <div>
-      <h3>Shopping Cart</h3>
-
+      <nav className="navbar navbar-expand-lg">
+          <div className="text-center">
+            <h3>Shopping Cart</h3>
+          </div>
+      </nav>
       <ProductList products={products} />
       <Cart />
       <WishList />

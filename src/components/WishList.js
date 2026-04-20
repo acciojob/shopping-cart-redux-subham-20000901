@@ -7,21 +7,25 @@ const WishList = () => {
     const dispatch = useDispatch();
     const wishlist = useSelector((state) => state.cart.wishlist)
  
-   return (
-  <div>
+    return (
+    <div>
+        <h3>WishList</h3>
 
-    <nav className="navbar navbar-expand-lg">
-      <div className="text-center">
-        <h3>Shopping Cart</h3>
-      </div>
-    </nav>
+        {wishlist.map((item) => (
+            <div className="custom-card" key={item.id} >
+             <div className="card-body">
 
-    <ProductList products={products} />
-    <Cart />
-    <Wishlist />
-
-  </div>
-);
+             <h4>{item.name}</h4>
+          
+             <button className="btn" onClick={()=>dispatch(addToCart(item))}>Add To Cart</button>
+             <button className="btn" onClick={() =>dispatch(removeFromWishlist(item))}>Remove from Wishlist</button>
+            </div>
+            </div>
+        ))
+        }
+      
+    </div>
+  )
 }
 
 export default WishList;

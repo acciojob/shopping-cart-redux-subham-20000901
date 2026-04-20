@@ -9,6 +9,7 @@ const ProductList = ({ products }) => {
       {products.map((product) => (
         <div className="custom-card card">
           <div className="card-body">
+            
             <h4>{product.name}</h4>
             <p>{product.price}</p>
 
