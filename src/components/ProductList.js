@@ -7,26 +7,24 @@ const ProductList = ({ products }) => {
   return (
     <div>
       {products.map((product) => (
-        <div className="custom-card" key={product.id}>
-         <div className="card-body">
+        <div className="custom-card card">
+          <div className="card-body">
+            <h4>{product.name}</h4>
+            <p>{product.price}</p>
 
-          <h3>{product.name}</h3>
+            <button
+              className="btn btn-primary"
+              onClick={() => dispatch(addToCart(product))}
+            >
+              Add to Cart
+            </button>
 
-          <p>{product.price}</p>
-
-          <button 
-           className="btn btn-primary add-to-cart"
-           onClick={() => dispatch(addToCart(product))}
-           >
-            Add To Cart
-          </button>
-
-          <button 
-           className="btn wishlist-btn"
-           onClick={() => dispatch(addToWishlist(product))}
-           >
-            Wishlist
-          </button>
+            <button
+              className="btn"
+              onClick={() => dispatch(addToWishlist(product))}
+            >
+              Wishlist
+            </button>
           </div>
         </div>
       ))}
