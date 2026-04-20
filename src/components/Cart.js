@@ -9,7 +9,7 @@ import {
 
 const Cart = ({ products }) => {
   const cartItems = useSelector((state) => state.cart.cart);
-   const discount = useSelector((state) => state.cart.discount);
+  const discount = useSelector((state) => state.cart.discount);
   const dispatch = useDispatch();
 
   const total = cartItems.reduce(
@@ -20,20 +20,32 @@ const Cart = ({ products }) => {
   const finalPrice = total - (total * discount) / 100;
   return (
     <div>
-      <h2>Cart</h2>
-      {cartItems.length === 0 && <p>Cart is empty</p>}
-      {cartItems.map((item) => (
-        <div key={item.id}  className="custom-card card">
-          <div className="card-body">
-          <h5> {item.name}</h5>
-          <p> {item.price}</p>
-          <p>Qty: {item.quantity}</p>
-          <button className="btn" onClick={() => dispatch(increaseQty(item))}>+</button>
-          <button className="btn" onClick={() => dispatch(decreaseQty(item))}>-</button>
+      <h3>Cart</h3>
 
-          <button className="btn btn-danger" onClick={() => dispatch(removeFromCart(item))}>Remove</button>
+      {cartItems.length === 0 && <p>Cart is empty</p>}
+
+      {cartItems.map((item) => (
+        <div key={item.id} className="custom-card card">
+          <div className="card-body">
+            <h4> {item.name}</h4>
+            <p> {item.price}</p>
+            <p>Qty:{item.quantity}</p>
+
+            <button className="btn" onClick={() => dispatch(increaseQty(item))}>
+              +
+            </button>
+            <button className="btn" onClick={() => dispatch(decreaseQty(item))}>
+              -
+            </button>
+
+            <button
+              className="btn"
+              onClick={() => dispatch(removeFromCart(item))}
+            >
+              Remove
+            </button>
+          </div>
         </div>
-         </div>
       ))}
 
       <h3>Total: ₹{total}</h3>

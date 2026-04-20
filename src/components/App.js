@@ -15,13 +15,14 @@ const App = () => {
     <div>
       <nav className="navbar navbar-expand-lg">
         <div className="text-center w-100">
-          <h2>Shopping Cart</h2>
+          <h3>Shopping Cart</h3>
         </div>
       </nav>
 
       <ProductList products={products} />
-      <WishList />
       <Cart />
+      <WishList />
+      
 
     </div>
   );

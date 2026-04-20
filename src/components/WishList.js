@@ -9,15 +9,16 @@ const WishList = () => {
  
     return (
     <div>
-        <h2>WishList</h2>
+        <h3>WishList</h3>
 
         {wishlist.map((item) => (
             <div className="custom-card card" key={item.id} >
              <div className="card-body">
-             <h5>{item.name}</h5>
-             <p>{item.price}</p>
+
+             <h4>{item.name}</h4>
+          
              <button className="btn" onClick={()=>dispatch(addToCart(item))}>Add To Cart</button>
-             <button className="btn btn-danger" onClick={() =>dispatch(removeFromWishlist(item))}>Remove from Wishlist</button>
+             <button className="btn" onClick={() =>dispatch(removeFromWishlist(item))}>Remove from Wishlist</button>
             </div>
             </div>
         ))

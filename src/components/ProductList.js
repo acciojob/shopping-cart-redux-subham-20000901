@@ -10,16 +10,19 @@ const ProductList = ({ products }) => {
       {products.map((product) => (
         <div className="custom-card card" key={product.id}>
          <div className="card-body">
-          <h5>{product.name}</h5>
+
+          <h4>{product.name}</h4>
           <p>{product.price}</p>
+          
           <button 
            className="btn btn-primary"
            onClick={() => dispatch(addToCart(product))}
            >
             Add To Cart
           </button>
+
           <button 
-           className="btn btn-secondary"
+           className="btn"
            onClick={() => dispatch(addToWishlist(product))}
            >
             Wishlist
