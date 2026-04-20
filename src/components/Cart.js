@@ -25,21 +25,21 @@ const Cart = ({ products }) => {
       {cartItems.length === 0 && <p>Cart is empty</p>}
 
       {cartItems.map((item) => (
-        <div key={item.id} className="custom-card card">
+        <div key={item.id} className="custom-card">
           <div className="card-body">
-            <h4> {item.name}</h4>
+            <h3> {item.name}</h3>
             <p> {item.price}</p>
             <p>Qty:{item.quantity}</p>
 
-            <button className="btn" onClick={() => dispatch(increaseQty(item))}>
+            <button className="btn inc-btn" onClick={() => dispatch(increaseQty(item))}>
               +
             </button>
-            <button className="btn" onClick={() => dispatch(decreaseQty(item))}>
+            <button className="btn dec-btn" onClick={() => dispatch(decreaseQty(item))}>
               -
             </button>
 
             <button
-              className="btn"
+              className="btn remove-btn"
               onClick={() => dispatch(removeFromCart(item))}
             >
               Remove
@@ -54,7 +54,7 @@ const Cart = ({ products }) => {
 
       <input
         type="text"
-        placeholder="Enter Coupon"
+        placeholder="Coupon"
         onBlur={(e) => dispatch(applyCoupon(e.target.value))}
       />
     </div>
