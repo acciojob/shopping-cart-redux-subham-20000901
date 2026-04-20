@@ -12,11 +12,13 @@ const WishList = () => {
         <h2>WishList</h2>
 
         {wishlist.map((item) => (
-            <div key={item.id}>
-             <p>{item.name}</p>
+            <div className="custom-card card" key={item.id} >
+             <div className="card-body">
+             <h5>{item.name}</h5>
              <p>{item.price}</p>
-             <button onClick={()=>dispatch(addToCart(item))}>Add To Cart</button>
-             <button onClick={() =>dispatch(removeFromWishlist(item))}>Remove from Wishlist</button>
+             <button className="btn" onClick={()=>dispatch(addToCart(item))}>Add To Cart</button>
+             <button className="btn btn-danger" onClick={() =>dispatch(removeFromWishlist(item))}>Remove from Wishlist</button>
+            </div>
             </div>
         ))
         }

@@ -23,14 +23,17 @@ const Cart = ({ products }) => {
       <h2>Cart</h2>
       {cartItems.length === 0 && <p>Cart is empty</p>}
       {cartItems.map((item) => (
-        <div div key={item.id}>
-          <p> {item.name}</p>
+        <div key={item.id}  className="custom-card card">
+          <div className="card-body">
+          <h5> {item.name}</h5>
           <p> {item.price}</p>
-          <button onClick={() => dispatch(increaseQty(item))}>+</button>
-          <button onClick={() => dispatch(decreaseQty(item))}>-</button>
+          <p>Qty: {item.quantity}</p>
+          <button className="btn" onClick={() => dispatch(increaseQty(item))}>+</button>
+          <button className="btn" onClick={() => dispatch(decreaseQty(item))}>-</button>
 
-          <button onClick={() => dispatch(removeFromCart(item))}>Remove</button>
+          <button className="btn btn-danger" onClick={() => dispatch(removeFromCart(item))}>Remove</button>
         </div>
+         </div>
       ))}
 
       <h3>Total: ₹{total}</h3>
